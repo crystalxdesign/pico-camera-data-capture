@@ -15,9 +15,11 @@ include_directories(./lib/Config)
 include_directories(./lib/CAM)
 include_directories(./lib/LCD)
 include_directories(./lib/GUI)
+include_directories(./src)
 
 add_executable(${PROJECT_NAME} 
-src/main.c 
+src/main.c
+src/ImageData.c
 )
 
 pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/lib/CAM/image.pio OUTPUT_DIR ${CMAKE_CURRENT_LIST_DIR}/lib/CAM/)

@@ -7,6 +7,7 @@
 #include "hardware/vreg.h"
 #include "hardware/clocks.h"
 #include "cam.h"
+#include "ImageData.h"
 #include "LCD_1in14_V2.h" 
 #include "GUI_Paint.h"
 // Camera source dimensions are deliberately explicit: update alongside adapter.
@@ -51,8 +52,9 @@ void core1_entry() {
     Paint_NewImage((UBYTE *)BlackImage, LCD_1IN14_V2.WIDTH, LCD_1IN14_V2.HEIGHT, 0, WHITE);
     Paint_SetScale(65);
     Paint_SetRotate(ROTATE_0);
+    Paint_DrawImage(gImage_waveshare, 0, 0, 240, 135);
     LCD_1IN14_V2_Display(BlackImage);
-    DEV_Delay_ms(500);
+    DEV_Delay_ms(2000);
 
     // CAM Init
     struct cam_config config;
